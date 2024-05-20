@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D03A2216-77FB-4C0E-BD50-FEDFFE2A4931}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UnrealFlagEditor</RootNamespace>
+    <AssemblyName>UnrealFlagEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ALWAYS_ONLY_DESERIALIZE_ON_DEMAND</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ALWAYS_ONLY_DESERIALIZE_ON_DEMAND</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Stopwatch|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_Stopwatch\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ALWAYS_ONLY_DESERIALIZE_ON_DEMAND,DEBUG_STOPWATCH</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Headless|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_Headless\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ALWAYS_ONLY_DESERIALIZE_ON_DEMAND</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Common\EditorEngine.cs" />
+    <Compile Include="src\Headless\EditorHeadless.cs" />
+    <Compile Include="src\Headless\HeadlessInstructions.cs" />
+    <Compile Include="src\Headless\XMLObject.cs" />
+    <Compile Include="src\Headless\XMLProperty.cs" />
+    <Compile Include="src\Form\Misc\FlowPanel_CustomizableScrollSpeed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Form\Misc\ElipsisGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Common\EdProps\EdProp_Checkbox.cs" />
+    <Compile Include="src\Common\EdProps\EdProp_Base.cs" />
+    <Compile Include="src\Common\EdProps\EdProp_Header.cs" />
+    <Compile Include="src\Common\EdProps\EdProp_FlagUInt64.cs" />
+    <Compile Include="src\Common\EdProps\EdProp_FlagUInt32.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UConst.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UMetaData.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UTextBuffer.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UEnum.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UPackage.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_Dummy.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_Base.cs" />
+    <Compile Include="src\Form\EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Form\EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Common\Nodes\EdNode_UObject.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UState.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_RootPackage.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UStruct.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UFunction.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UProperty.cs" />
+    <Compile Include="src\Common\Nodes\EdNode_UClass.cs" />
+    <Compile Include="src\Form\PropertyPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropertyPanel.Designer.cs">
+      <DependentUpon>PropertyPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Common\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Form\PropControls\PropControl_Bool.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Form\IControlContained.cs" />
+    <Compile Include="src\Form\IControlContainer.cs" />
+    <Compile Include="src\Form\PropControls\IPropertyControl.cs" />
+    <Compile Include="src\Form\PropNotifications\PropNotification_Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Base.Designer.cs">
+      <DependentUpon>PropNotification_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Error.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Error.Designer.cs">
+      <DependentUpon>PropNotification_Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Info.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Info.Designer.cs">
+      <DependentUpon>PropNotification_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Warning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\PropNotification_Warning.Designer.cs">
+      <DependentUpon>PropNotification_Warning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\TextBoxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropNotifications\TextBoxWindow.Designer.cs">
+      <DependentUpon>TextBoxWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="src\Form\PropertyPanel.resx">
+      <DependentUpon>PropertyPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\PropContainers\PropContainer_Category.resx">
+      <DependentUpon>PropContainer_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="src\Form\PropContainers\PropContainer_Category.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Form\PropContainers\PropContainer_Category.Designer.cs">
+      <DependentUpon>PropContainer_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Form\PropControls\PropControl_Header.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="src\Form\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="src\Form\PropNotifications\PropNotification_Base.resx">
+      <DependentUpon>PropNotification_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\PropNotifications\PropNotification_Error.resx">
+      <DependentUpon>PropNotification_Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\PropNotifications\PropNotification_Info.resx">
+      <DependentUpon>PropNotification_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\PropNotifications\PropNotification_Warning.resx">
+      <DependentUpon>PropNotification_Warning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Form\PropNotifications\TextBoxWindow.resx">
+      <DependentUpon>TextBoxWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <!-- If I want to guarantee that the release build uses a specific version of UELib, I kinda have to use the NuGet package here.
+  Though, setting it up as a simple package reference also makes VS use an ugly decompiled assembly with all the comments removed.
+  So, use a property defined in an UnrealFlagsEditor.csproj.user file that controls when/if a project ref should be used. -->
+  <ItemGroup Condition="'$(UseUELibProject)'=='True' And Exists('$(UELibProjectPath)')">
+    <ProjectReference Include="$(UELibProjectPath)">
+      <Project>{abc36cdf-1b4c-4a82-96ed-a16b2ca7c9b2}</Project>
+      <Name>Eliot.UELib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseUELibProject)'!='True' Or !Exists('$(UELibProjectPath)')">
+    <Reference Include="Eliot.UELib, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Eliot.UELib.1.5.0\lib\net48\Eliot.UELib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
