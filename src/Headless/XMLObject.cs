@@ -296,7 +296,7 @@ namespace UnrealFlagEditor
                 return foundExplicit;
             }
 
-            if (!foundImplicit.IsOfUnrealType(type))
+            if (type != null && !foundImplicit.IsOfUnrealType(type))
             {
                 if (throwOnMismatchedType)
                     throw new InvalidCastException(ObjectTypeMismatchError(foundImplicit, type));
