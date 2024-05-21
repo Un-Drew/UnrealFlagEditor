@@ -28,6 +28,8 @@ namespace UnrealFlagEditor
         //public ToolTip PropsToolTip => propsToolTip;
         public PropertyPanel PropPanel => propertyPanel;
 
+        public string PendingPackagePath;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         extern static IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
 
@@ -45,7 +47,9 @@ namespace UnrealFlagEditor
             InitForm();
 
             if (package != null)
-                OpenPackage(package);
+            {
+                PendingPackagePath = package;
+            }
         }
 
         public void InitForm()
@@ -60,6 +64,15 @@ namespace UnrealFlagEditor
 #endif
             NoPackageLoadedNode = packageTree.Nodes.Find("noPackageLoaded", false);
             SetSearchPlaceholder();
+        }
+
+        private void EditorForm_Shown(object sender, EventArgs e)
+        {
+            if (PendingPackagePath != null)
+            {
+                OpenPackage(PendingPackagePath);
+                PendingPackagePath = null;
+            }
         }
 
         static public void Print(string s)

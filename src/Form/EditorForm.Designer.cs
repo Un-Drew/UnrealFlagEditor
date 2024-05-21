@@ -38,7 +38,6 @@
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.propertyPanel = new UnrealFlagEditor.PropertyPanel();
             this.workspacePanel = new System.Windows.Forms.Panel();
             this.statsSplit = new System.Windows.Forms.SplitContainer();
             this.statsBox = new System.Windows.Forms.GroupBox();
@@ -51,6 +50,7 @@
             this.itemDebug = new System.Windows.Forms.ToolStripMenuItem();
             this.takeOutTheTrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iterationPerformanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.propertyPanel = new UnrealFlagEditor.PropertyPanel();
             ((System.ComponentModel.ISupportInitialize)(this.workspaceSplit)).BeginInit();
             this.workspaceSplit.Panel1.SuspendLayout();
             this.workspaceSplit.Panel2.SuspendLayout();
@@ -175,14 +175,6 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // propertyPanel
-            // 
-            this.propertyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyPanel.Location = new System.Drawing.Point(0, 0);
-            this.propertyPanel.Name = "propertyPanel";
-            this.propertyPanel.Size = new System.Drawing.Size(422, 390);
-            this.propertyPanel.TabIndex = 0;
-            // 
             // workspacePanel
             // 
             this.workspacePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -305,6 +297,14 @@
             this.iterationPerformanceToolStripMenuItem.Text = "Iteration Performance";
             this.iterationPerformanceToolStripMenuItem.Click += new System.EventHandler(this.iterationPerformanceToolStripMenuItem_Click);
             // 
+            // propertyPanel
+            // 
+            this.propertyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyPanel.Location = new System.Drawing.Point(0, 0);
+            this.propertyPanel.Name = "propertyPanel";
+            this.propertyPanel.Size = new System.Drawing.Size(422, 390);
+            this.propertyPanel.TabIndex = 0;
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,6 +316,7 @@
             this.MainMenuStrip = this.formMenuStrip;
             this.Name = "EditorForm";
             this.Text = "Unreal Flag Editor";
+            this.Shown += new System.EventHandler(this.EditorForm_Shown);
             this.workspaceSplit.Panel1.ResumeLayout(false);
             this.workspaceSplit.Panel1.PerformLayout();
             this.workspaceSplit.Panel2.ResumeLayout(false);
