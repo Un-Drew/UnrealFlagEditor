@@ -22,13 +22,26 @@ namespace UnrealFlagEditor
         public List<PropNotification_Base> CurrentNotifs = new List<PropNotification_Base>();
         public List<IPropertyControl> CurrentPropertyControls = new List<IPropertyControl>();
 
+        public IPropertyControl RightClickedControl;
+
         public ToolTip PropsToolTip => propsToolTip;
+        public ContextMenuStrip PropertyContextMenu => propertyContextMenu;
 
         public PropertyPanel()
         {
             InitializeComponent();
 
             InitGlobalControls();
+
+            Disposed += OnDispose;
+        }
+
+        public void OnDispose(object sender, EventArgs e)
+        {
+            AllPropertyControls.Clear();
+            SelectedNodes.Clear();
+            CurrentPropertyControls.Clear();
+            RightClickedControl = null;
         }
 
         public void InitGlobalControls()
@@ -51,6 +64,13 @@ namespace UnrealFlagEditor
             {
                 throw new ArgumentException($"Attempted to add control with identifier {c.Identifier}, but that identifier was already used!");
             }
+        }
+
+        private void copyIdentifierToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (propertyContextMenu.SourceControl == null || !(propertyContextMenu.SourceControl is IPropertyControl))
+                return;
+            Clipboard.SetText(((IPropertyControl)propertyContextMenu.SourceControl).Identifier);
         }
 
         public void DropSelection()

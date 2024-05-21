@@ -25,6 +25,7 @@ namespace UnrealFlagEditor
         public PropControl_Bool(PropertyPanel inOwner, string identifier, string Name, string toolTip = "") : base()
         {
             PropPanel = inOwner;
+            ContextMenuStrip = PropPanel.PropertyContextMenu;
             MyIdentifier = identifier;
             Text = Name;
             AutoSize = true;
@@ -110,6 +111,7 @@ namespace UnrealFlagEditor
             {
                 PropPanel.PropsToolTip.SetToolTip(this, null);
             }
+            ContextMenuStrip = null;
             PropPanel = null;
             MyProps.Clear();
             base.Dispose(disposing);

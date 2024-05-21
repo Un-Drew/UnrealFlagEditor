@@ -126,7 +126,33 @@
   <metadata name="notifPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="flowPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="notifPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="propsToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="propertyContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="copyIdentifierToClipboardToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABg2lDQ1BJQ0MgcHJvZmlsZQAAKM+VkTlI
+        A0EYhT+joki8MIKIxRbRShsVsZQoiqAgSYR4FO5uTBSym7AbsbEUbAULj8arsLHW1sJWEAQPEGsLK0Ub
+        kfWfjZAgRHBgmI838x4zbyBwkDEtt2oILDvvRMciWmJmVqt5pppWmmigWTfd3GRsNE7Z8XFLhVpvelQW
+        /xv1yUXXhApNeMjMOXnhBeGB1XxO8Y5wyFzSk8Knwt2OXFD4XulGgV8Up30OqMyQE48OC4eEtXQJGyVs
+        LjmWcL9wOGnZkh9IFDipeE2xlVkxf+6pXhhctKdjSpfZwRjjTDKFhsEKy2TI0yOrLYpLVPYjZfztvn9K
+        XIa4ljHFMUIWC933o/7gd7duqq+3kBSMQPWT5711Qs0WfG163ueh530dQeUjXNhFf/YABt9F3yxq4X1o
+        XIezy6JmbMP5BrQ95HRH96VKmYFUCl5P5JtmoOUa6uYKvf3sc3wHcelq4gp296ArLdnzZd5dW9rbn2f8
+        /oh8A3RjcqewW+xXAAAACXBIWXMAAC4iAAAuIgGq4t2SAAAAB3RJTUUH6AUVEBoANe9COQAAABl0RVh0
+        Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAACCSURBVDhPnY6BEoAgCEP9/x/xM6shK1yi5bub
+        CoOdRTl+4msP3vwkm7VToAlqrcO7C4ipUdkybvjgDlBWIcsAMAsZBnCBNeB76wcA3tYPsl6U+RzKmHmg
+        C2AyxV4k1te7VToUkYVbpAuIA7HHW2V9mhnqvWo7PDGTznjdsGqDtl3KCftYsciB3YkaAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
 </root>

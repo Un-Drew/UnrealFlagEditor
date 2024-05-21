@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertyPanel));
             this.groupBox = new UnrealFlagEditor.ElipsisGroupBox();
             this.flowPanel = new UnrealFlagEditor.FlowPanel_CustomizableScrollSpeed();
             this.notifPanel = new System.Windows.Forms.Panel();
             this.propsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.propertyContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyIdentifierToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox.SuspendLayout();
+            this.propertyContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
@@ -77,6 +81,21 @@
             this.propsToolTip.InitialDelay = 500;
             this.propsToolTip.ReshowDelay = 100;
             // 
+            // propertyContextMenu
+            // 
+            this.propertyContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyIdentifierToClipboardToolStripMenuItem});
+            this.propertyContextMenu.Name = "contextMenuStrip1";
+            this.propertyContextMenu.Size = new System.Drawing.Size(222, 48);
+            // 
+            // copyIdentifierToClipboardToolStripMenuItem
+            // 
+            this.copyIdentifierToClipboardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyIdentifierToClipboardToolStripMenuItem.Image")));
+            this.copyIdentifierToClipboardToolStripMenuItem.Name = "copyIdentifierToClipboardToolStripMenuItem";
+            this.copyIdentifierToClipboardToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.copyIdentifierToClipboardToolStripMenuItem.Text = "Copy Identifier to Clipboard";
+            this.copyIdentifierToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyIdentifierToClipboardToolStripMenuItem_Click);
+            // 
             // PropertyPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,6 +105,7 @@
             this.Size = new System.Drawing.Size(400, 500);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            this.propertyContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -96,5 +116,7 @@
         private FlowPanel_CustomizableScrollSpeed flowPanel;
         private System.Windows.Forms.Panel notifPanel;
         private System.Windows.Forms.ToolTip propsToolTip;
+        private System.Windows.Forms.ContextMenuStrip propertyContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem copyIdentifierToClipboardToolStripMenuItem;
     }
 }
