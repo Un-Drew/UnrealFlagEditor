@@ -8,16 +8,16 @@ using System.Windows.Forms;
 
 namespace UnrealFlagEditor
 {
-	internal static class Program
-	{
+    internal static class Program
+    {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-		static int Main(string[] args)
-		{
+        static int Main(string[] args)
+        {
             if (args.Length > 0 && string.Compare(args[0], "-PrintTest", true) == 0)
-			{
+            {
                 AttachToParentConsole();
                 DoPrintTest(args);
 
@@ -27,25 +27,25 @@ namespace UnrealFlagEditor
             string headlessInstructions = null;
             string package = null;
 
-			System.Collections.IEnumerator enumerator = args.GetEnumerator();
+            System.Collections.IEnumerator enumerator = args.GetEnumerator();
 
-			while (enumerator.MoveNext())
-			{
-				string current = (string)enumerator.Current;
+            while (enumerator.MoveNext())
+            {
+                string current = (string)enumerator.Current;
                 switch (current.ToUpperInvariant())
-				{
-					case "-HEADLESSINSTRUCTIONS":
-						if (!enumerator.MoveNext())
-						{
+                {
+                    case "-HEADLESSINSTRUCTIONS":
+                        if (!enumerator.MoveNext())
+                        {
                             AttachToParentConsole();
                             Console.ForegroundColor = ConsoleColor.Red;
                             WriteConsoleMessage(@"ERROR: Expected path argument after '-HeadlessInstructions'. e.g.: -HeadlessInstructions C:\My\File\Path.xml");
                             Console.ResetColor();
                             return 1;
-						}
-						headlessInstructions = (string)enumerator.Current;
-						break;
-					case "-PACKAGE":
+                        }
+                        headlessInstructions = (string)enumerator.Current;
+                        break;
+                    case "-PACKAGE":
                         if (!enumerator.MoveNext())
                         {
                             AttachToParentConsole();
@@ -55,8 +55,8 @@ namespace UnrealFlagEditor
                             return 1;
                         }
                         package = (string)enumerator.Current;
-						break;
-					default:
+                        break;
+                    default:
                         // Unrecognised argument. This could be a file argument passed by "Open With" in Windows.
                         package = null;
                         try
@@ -77,7 +77,7 @@ namespace UnrealFlagEditor
                         }
                         break;
                 }
-			}
+            }
 
             if (headlessInstructions != null)
             {
@@ -98,7 +98,7 @@ namespace UnrealFlagEditor
                 OpenTheForm(package);
                 return 0;
             }
-		}
+        }
 
         static public void DoPrintTest(string[] args)
         {
@@ -115,12 +115,12 @@ namespace UnrealFlagEditor
             WriteConsoleMessage("");
         }
 
-		static public void OpenTheForm(string package)
-		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new EditorForm(package));
-		}
+        static public void OpenTheForm(string package)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new EditorForm(package));
+        }
 
         static public void WriteConsoleMessage(string s)
         {
@@ -136,7 +136,7 @@ namespace UnrealFlagEditor
         {
             AttachConsole(ATTACH_PARENT_PROCESS);
         }
-	}
+    }
 }
 
 /*
