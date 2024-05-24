@@ -19,8 +19,8 @@ This tool was primarily made to provide an easy way to disable compiler-enforced
 Additionally, this tool also includes a [**Headless Mode**](https://github.com/Un-Drew/UnrealFlagEditor/wiki/Headless-Mode), for mod developers that want to include these flag changes into their build pipeline.
 
 # Disclaimers
+- ***ONLY USE THIS AS A LAST RESORT!*** I recommend looking for safer alternatives to solve your problem before using this tool. It's especially dangerous to use this with native classes or their contents, so I advise against modifying them **unless you're 100% sure you know what you're doing!**
 - ***TO AVOID ANY POTENTIAL DATA LOSS, PLEASE MAKE BACKUPS OF YOUR PACKAGES BEFORE USING THIS TOOL!*** While I tried my best to handle every little edge-case, I can't 100% guarantee that this tool is fool-proof.
-- Before using this tool to bypass the script compiler, make sure you know what you're doing! Ensure there isn't already a setter that does what you want. **Basically, only use this as a last resort!**
 
 # Requirements
 Since this tool makes use of [UELib](https://github.com/EliotVU/Unreal-Library), you will need [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) to run this app.
