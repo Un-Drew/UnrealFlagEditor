@@ -404,5 +404,6 @@ FodyWeavers.xsd
 # UnDrew: Test assets.
 ASSETS/
 
-# Exported pngs in RAW_ASSETS
+# Exported pngs and icos in RAW_ASSETS
 RAW_ASSETS/**/*.png
+RAW_ASSETS/**/*.ico
