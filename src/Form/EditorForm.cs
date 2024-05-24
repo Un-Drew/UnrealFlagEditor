@@ -59,6 +59,8 @@ namespace UnrealFlagEditor
 #endif
             NoPackageLoadedNode = packageTree.Nodes.Find("noPackageLoaded", false);
             SetSearchPlaceholder();
+
+            UpdateStatText();
         }
 
         private void EditorForm_Shown(object sender, EventArgs e)
