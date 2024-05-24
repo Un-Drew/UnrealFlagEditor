@@ -79,13 +79,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -231,10 +226,10 @@
   </ItemGroup>
   <!-- If I want to guarantee that the release build uses a specific version of UELib, I kinda have to use the NuGet package here.
   Though, setting it up as a simple package reference also makes VS use an ugly decompiled assembly with all the comments removed.
-  So, use a property defined in an UnrealFlagsEditor.csproj.user file that controls when/if a project ref should be used. -->
+  So, use a property defined in an UnrealFlagsEditor.csproj.user file that controls when/if a project ref should be used.
+  NOTE: This awkward setup doesn't work with a PackageReference project, so I'm kinda forced to use the packages.json alternative. -->
   <ItemGroup Condition="'$(UseUELibProject)'=='True' And Exists('$(UELibProjectPath)')">
     <ProjectReference Include="$(UELibProjectPath)">
-      <Project>{abc36cdf-1b4c-4a82-96ed-a16b2ca7c9b2}</Project>
       <Name>Eliot.UELib</Name>
     </ProjectReference>
   </ItemGroup>
