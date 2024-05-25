@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security;
 using UELib;
 using UELib.Core;
 
@@ -409,6 +410,35 @@ namespace UnrealFlagEditor
                 CoreResourceManager = new System.Resources.ResourceManager(assembly.GetName().Name, assembly);
             }
             return CoreResourceManager;
+        }
+
+        static public string GetUserFriendlyFileError(string filePath, string friendlyTypeName, Exception e)
+        {
+            // Special case, to add a bit of info.
+            if (e is UnauthorizedAccessException)
+            {
+                return $"Failed to open {friendlyTypeName}: {e.Message} Make sure that the file is not read-only, and that this user has access to it.";
+            }
+            // Exceptions that DO already specify the file path, or specifying it would be redundant:
+            if (
+                   e is ArgumentException
+                || e is FileNotFoundException
+                || e is SecurityException
+                || e is DirectoryNotFoundException
+                )
+            {
+                return $"Failed to open {friendlyTypeName}: {e.Message}";
+            }
+            // Exceptions that don't specify the file path:
+            else if (
+                   e is PathTooLongException
+                // Thrown by UELib when trying to load something that isn't a package.
+                || e is FileLoadException
+                )
+                {
+                    return $"Failed to open {friendlyTypeName} {filePath}: {e.Message}";
+                }
+            return null;
         }
 
         protected virtual void Dispose(bool disposing)

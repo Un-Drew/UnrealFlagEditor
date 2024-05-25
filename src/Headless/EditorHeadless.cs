@@ -34,13 +34,13 @@ namespace UnrealFlagEditor
                         {
                             edEngine.LoadPackage(packageFilePath);
                         }
-                        catch (FileNotFoundException e)
+                        catch (Exception e)
                         {
-                            RegisterConsoleError(e.Message);
-                        }
-                        catch (FileLoadException e)
-                        {
-                            RegisterConsoleError($"Failed to load package {packageFilePath}: {e.Message}");
+                            string error = EditorEngine.GetUserFriendlyFileError(packageFilePath, "package", e);
+                            if (error != null)
+                                RegisterConsoleError(error);
+                            else
+                                throw;
                         }
 
                         if (edEngine.LoadedPackage != null)
@@ -50,7 +50,7 @@ namespace UnrealFlagEditor
                     }
                     catch (Exception e)
                     {
-                        RegisterConsoleError($"Unexpected exception while running instructions: {e}");
+                        RegisterConsoleError($"Unexpected exception while running instructions for package {packageFilePath}: {e}");
                     }
 
                     if (edEngine != null)
@@ -128,13 +128,13 @@ namespace UnrealFlagEditor
                     return instr;
                 }
             }
-            catch (FileNotFoundException e)
+            catch (Exception e)
             {
-                RegisterConsoleError(e.Message);
-            }
-            catch (FileLoadException e)
-            {
-                RegisterConsoleError($"Failed to load XML file {xmlFilePath}: {e.Message}");
+                string error = EditorEngine.GetUserFriendlyFileError(xmlFilePath, "XML file", e);
+                if (error != null)
+                    RegisterConsoleError(error);
+                else
+                    RegisterConsoleError($"Unexpected exception trying to open the XML file {xmlFilePath}: {e}");
             }
 
             return null;

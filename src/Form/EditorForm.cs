@@ -308,17 +308,13 @@ namespace UnrealFlagEditor
 
                 EdEngine.LoadPackage(path);
             }
-            catch (FileNotFoundException findEx)
+            catch (Exception e)
             {
-                ShowFileErrorBox(findEx.Message);
-            }
-            catch (FileLoadException loadEx)
-            {
-                ShowFileErrorBox("Could not open file: " + loadEx.Message);
-            }
-            catch (Exception otherEx)
-            {
-                ShowFileErrorBox(otherEx.ToString());
+                string error = EditorEngine.GetUserFriendlyFileError(path, "package", e);
+                if (error != null)
+                    ShowFileErrorBox(error);
+                else
+                    ShowFileErrorBox($"Unexpected exception while trying to open package {path}: {e}");
             }
 
             if (EdEngine.LoadedPackage != null)
