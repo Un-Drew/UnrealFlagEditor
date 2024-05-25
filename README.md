@@ -23,7 +23,7 @@ Additionally, this tool also includes a [**Headless Mode**](https://github.com/U
 - ***TO AVOID ANY POTENTIAL DATA LOSS, PLEASE MAKE BACKUPS OF YOUR PACKAGES BEFORE USING THIS TOOL!*** While I tried my best to handle every little edge-case, I can't 100% guarantee that this tool is fool-proof.
 
 # Requirements
-Since this tool makes use of [UELib](https://github.com/EliotVU/Unreal-Library), you will need [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) to run this app.
+This tool requires [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) in order to run.
 
 # Limitations
 - Packages from UE4 upwards are not supported.
